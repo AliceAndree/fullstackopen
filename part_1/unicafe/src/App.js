@@ -1,12 +1,44 @@
 import React, { useState } from 'react'
 
-const Display = ({counter}) => <div>{counter}</div>
-
 const Button = ({ onClick, text }) => (
   <button onClick={onClick}>
     {text}
   </button>
 )
+
+const Statistics = ({goods, neutrals, bads, all, average, positive}) => (
+    <div>
+      <h1>statistics</h1>
+      <ul className='statistics'>
+
+        <li>good
+        <div>{goods}</div>
+        </li>
+
+        <li>neutral
+        <div>{neutrals}</div>
+        </li>
+
+        <li>bad
+        <div>{bads}</div>
+        </li>
+
+        <li>all
+        <div>{all}</div>
+        </li>
+
+        <li>average
+        <div>{average}</div>
+        </li>
+
+        <li>positive
+        <div>{positive}</div>
+        </li>
+
+      </ul>
+    </div>
+  )
+
 
 const App = () => {
   // save clicks of each button to its own state
@@ -20,59 +52,44 @@ const App = () => {
   const increaseGood = () => {
     setGood(good + 1)
     setAll(all + 1)
-    setAverage(((good+1) - bad)/(all+1))
-    setPositive(((good +1)/(all + 1))*100)    
+    setAverage(((good + 1) - bad) / (all + 1))
+    setPositive(((good + 1) / (all + 1)) * 100)
   }
   const increaseNeutral = () => {
     setNeutral(neutral + 1)
     setAll(all + 1)
-    setPositive(((good)/(all + 1))*100)    
+    setPositive(((good) / (all + 1)) * 100)
   }
-  const increaseBad = () => { 
-    setBad(bad + 1) 
+  const increaseBad = () => {
+    setBad(bad + 1)
     setAll(good + neutral + bad + 1)
-    setAverage((good - (bad + 1))/(all+1))
-    setPositive(((good)/(all + 1))*100)    
+    setAverage((good - (bad + 1)) / (all + 1))
+    setPositive(((good) / (all + 1)) * 100)
   }
-  
+
 
   return (
     <div>
       <h1>give feedback</h1>
-      <Button 
+      <Button
         onClick={increaseGood}
         text='good'
       />
-      <Button 
+      <Button
         onClick={increaseNeutral}
         text='neutral'
       />
-      <Button 
+      <Button
         onClick={increaseBad}
         text='bad'
       />
-
-      <h1>statistics</h1>
-      <ul className='statistics'>
-        <li>good 
-        <Display className='counter' counter={good} />
-        </li>
-        <li>neutral 
-        <Display counter={neutral} />  
-        </li>
-        <li>bad 
-        <Display counter={bad} />
-        </li>
-        <li>all
-        <Display counter={all} />
-        </li>
-        <li>average
-        <Display counter={average} />
-        </li>
-        <li>positive
-        <Display counter={positive + '%'}/>
-        </li>
-      </ul>
+      <Statistics 
+        goods={good} 
+        neutrals={neutral}
+        bads={bad}
+        all={all}
+        average={average}
+        positive={positive + `%`}/>
     </div>
   )
 }
