@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 4.2px;
+  letter-spacing: 1px;
 }
 
 code {
@@ -14,7 +14,7 @@ code {
 }
 
 button {
-  padding: 1px 21px;
+  padding: 1px 14px;
   margin-right: 16px;
 }
 
@@ -23,11 +23,6 @@ button {
   padding: 0;
 }
 
-.statistics li {
-  width: 275px;
-  letter-spacing: 1px;
-}
-
-.statistics li div{
-  float: right;
+th {
+  text-align: left;
 }

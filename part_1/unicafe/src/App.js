@@ -6,40 +6,40 @@ const Button = ({ onClick, text }) => (
   </button>
 )
 
-const StatisticLine = ({text, value}) => (
-  <li>
-    {text}
-    <div>{value}</div>
-  </li>
+const StatisticLine = ({ text, value }) => (
+  <tr>
+    <th>{text}</th>
+    <td>{value}</td>
+  </tr>
 )
 
-const Statistics = ({goods, neutrals, bads, all, average, positive}) => {
+const Statistics = ({ goods, neutrals, bads, all, average, positive }) => {
 
   if (all === 0) {
     return (
       <div>
         <h1>statistics</h1>
-        No feedback given 
+        No feedback given
       </div>
     )
   }
   return (
     <div>
       <h1>statistics</h1>
-      <ul className='statistics'>
-
-        <StatisticLine text='good' value={goods}/>
-        <StatisticLine text='neutral' value={neutrals}/>
-        <StatisticLine text='bad' value={bads}/>
-        <StatisticLine text='all' value={all}/>
-        <StatisticLine text='average' value={average}/>
-        <StatisticLine text='positive' value={positive}/>
-
-      </ul>
+      <table className='statistics'>
+        <tbody>
+          <StatisticLine text='good' value={goods} />
+          <StatisticLine text='neutral' value={neutrals} />
+          <StatisticLine text='bad' value={bads} />
+          <StatisticLine text='all' value={all} />
+          <StatisticLine text='average' value={average} />
+          <StatisticLine text='positive' value={positive} />
+        </tbody>
+      </table>
     </div>
-    )
-  }
-  
+  )
+}
+
 
 
 const App = () => {
@@ -85,13 +85,13 @@ const App = () => {
         onClick={increaseBad}
         text='bad'
       />
-      <Statistics 
-        goods={good} 
+      <Statistics
+        goods={good}
         neutrals={neutral}
         bads={bad}
         all={all}
         average={average}
-        positive={positive + `%`}/>
+        positive={positive + `%`} />
     </div>
   )
 }
