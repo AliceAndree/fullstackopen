@@ -6,7 +6,17 @@ const Button = ({ onClick, text }) => (
   </button>
 )
 
-const Statistics = ({goods, neutrals, bads, all, average, positive}) => (
+const Statistics = ({goods, neutrals, bads, all, average, positive}) => {
+
+  if (all === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        No feedback given 
+      </div>
+    )
+  }
+  return (
     <div>
       <h1>statistics</h1>
       <ul className='statistics'>
@@ -37,7 +47,9 @@ const Statistics = ({goods, neutrals, bads, all, average, positive}) => (
 
       </ul>
     </div>
-  )
+    )
+  }
+  
 
 
 const App = () => {
