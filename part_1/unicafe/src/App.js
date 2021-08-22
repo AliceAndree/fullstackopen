@@ -6,6 +6,13 @@ const Button = ({ onClick, text }) => (
   </button>
 )
 
+const StatisticLine = ({text, value}) => (
+  <li>
+    {text}
+    <div>{value}</div>
+  </li>
+)
+
 const Statistics = ({goods, neutrals, bads, all, average, positive}) => {
 
   if (all === 0) {
@@ -21,29 +28,12 @@ const Statistics = ({goods, neutrals, bads, all, average, positive}) => {
       <h1>statistics</h1>
       <ul className='statistics'>
 
-        <li>good
-        <div>{goods}</div>
-        </li>
-
-        <li>neutral
-        <div>{neutrals}</div>
-        </li>
-
-        <li>bad
-        <div>{bads}</div>
-        </li>
-
-        <li>all
-        <div>{all}</div>
-        </li>
-
-        <li>average
-        <div>{average}</div>
-        </li>
-
-        <li>positive
-        <div>{positive}</div>
-        </li>
+        <StatisticLine text='good' value={goods}/>
+        <StatisticLine text='neutral' value={neutrals}/>
+        <StatisticLine text='bad' value={bads}/>
+        <StatisticLine text='all' value={all}/>
+        <StatisticLine text='average' value={average}/>
+        <StatisticLine text='positive' value={positive}/>
 
       </ul>
     </div>
