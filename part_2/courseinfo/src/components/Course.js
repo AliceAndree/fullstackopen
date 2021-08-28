@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from './Header'
 import Content from './Content'
+import Total from './Total'
 
-const Course = ({ course }) => {
+const Course = ({course},{total}) => {
     return (
         <div>
             <Header course={course} />
-            <Content course={course}/>
+            <Content course={course} />
+            <Total course={course} />
         </div>
     )
 }
