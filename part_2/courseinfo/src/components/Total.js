@@ -1,12 +1,14 @@
 import React from 'react'
 
-const Total = ({ course }) => {
+const Total = ({ parts }) => {
+    const arr = parts.map((parts) => parts.exercises)
+    const total = arr.reduce(
+        (previousSum, currentSum) => previousSum + currentSum)
+
+    console.log(total)
     return (
         <div>
-            <b>Total of {course.parts.reduce(
-                (previousSum, currentSum) => previousSum + currentSum.exercises,
-                0
-            )} exercises</b>
+            <b>Total of {total} exercices</b>
         </div>
     )
 }

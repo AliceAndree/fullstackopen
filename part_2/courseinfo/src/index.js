@@ -10,7 +10,8 @@ import Course from './components/Course'
 // }
 
 const App = () => {
-  const course = {
+  const course = [
+    {
     id: 1,
     name: 'Half Stack application development',
     parts: [
@@ -28,11 +29,39 @@ const App = () => {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name:'Redux',
+        exercises: 11,
+        id: 4
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'Node.js',
+    parts: [
+      {
+        name: 'Routing',
+        exercises: 3,
+        id: 1
+      },
+      {
+        name: 'Middlewars',
+        exercises: 7, 
+        id: 2
       }
     ]
   }
+]
+  
 
-  return <Course course={course} />
+  return (
+  <div>
+    <h1>Web development curriculum</h1> 
+    <Course course={course} />
+  </div>  
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
